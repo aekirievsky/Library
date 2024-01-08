@@ -1,0 +1,30 @@
+@model Library.Models.ResponseViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    @{
+        if (Model.Success)
+        {
+            <h2>Operation was successful!</h2>
+        }
+        else
+        {
+            <h2>Operation failed</h2>
+        }
+    }
+
+    <a href="@Url.Action("Index", "Home")">Back</a>
+
+</div>
+</body>
+</html>
