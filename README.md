@@ -19,8 +19,10 @@ Library Service - это веб-приложение ASP.NET Core, разраб�
 1. Клонировать репозиторий
 2. Открыть проект в Visual Studio или выбранной среде разработки
 3. Настроить соединение с базой данных в файле Program.cs в следующем методе
-```builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Filename = /ПУТЬ К ПРОЕКТУ/database.db"));```
+```
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Filename = /ПУТЬ К ПРОЕКТУ/database.db"));
+```
 4. Запустить приложение
 
 ## Использование
