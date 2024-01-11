@@ -7,6 +7,7 @@ public class AppDbContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Book> Books { get; set; }
+    public DbSet<AdminUser> AdminUsers { get; set; }
     public DbSet<UserBook> UserBook { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -19,8 +20,15 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<User>().Property(t => t.UserId).ValueGeneratedOnAdd();
         modelBuilder.Entity<Book>().Property(t => t.BookId).ValueGeneratedOnAdd();
 
+
         modelBuilder.Entity<UserBook>()
             .HasKey(x => new { x.UserId, x.BookId });
+        modelBuilder.Entity<AdminUser>()
+            .HasKey(x => new { x.AdminId, x.UserName });
+        modelBuilder.Entity<AdminToken>()
+            .HasKey(x=>new {x.Token, x.AdminId});
+        modelBuilder.Entity<UserToken>()
+           .HasKey(x=>new {x.Token, x.UserId});
 
         modelBuilder.Entity<UserBook>()
             .HasOne(x => x.Book)
@@ -31,6 +39,15 @@ public class AppDbContext : DbContext
             .HasOne(x => x.User)
             .WithMany(x => x.UserBook)
             .HasForeignKey(x => x.UserId);
+
+        modelBuilder.Entity<UserToken>()
+            .HasOne(x => x.User)
+            .WithMany(x => x.UserTokens)
+            .HasPrincipalKey(x => x.UserId);
+        modelBuilder.Entity<AdminToken>()
+            .HasOne(x => x.AdminUser)
+            .WithMany(x => x.AdminTokens)
+            .HasPrincipalKey(x => x.AdminId);
     }
 
     public void AddUser(User user_p)
@@ -44,6 +61,4 @@ public class AppDbContext : DbContext
         Books.Add(book_p);
         SaveChanges();
     }
-    
-    
 }
