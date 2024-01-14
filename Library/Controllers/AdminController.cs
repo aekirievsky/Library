@@ -3,15 +3,19 @@ using Library.Data.DataBase;
 using Library.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Library.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Library.Controllers;
 
-public class HomeController : Controller
+[Authorize]
+public class AdminController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<AdminController> _logger;
     private readonly AppDbContext _appDbContext;
 
-    public HomeController(ILogger<HomeController> logger, AppDbContext appDbContext)
+    public AdminController(ILogger<AdminController> logger, AppDbContext appDbContext)
     {
         _logger = logger;
         _appDbContext = appDbContext;
@@ -71,12 +75,14 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddUserForm(string firstName, string secondName)
+    public IActionResult AddUserForm(string userName, string password)
     {
-        User user = new User();
-        string FullName = $"First name - {firstName} \nSecond name - {secondName}";
-        user.FirstName = firstName;
-        user.SecondName = secondName;
+        User user = new User()
+        {
+            UserName = userName,
+            Password = password
+        };
+
         try
         {
             _appDbContext.AddUser(user);
@@ -100,5 +106,34 @@ public class HomeController : Controller
     public IActionResult AddBookForm()
     {
         return View("~/Views/Forms/AddBook.cshtml");
+    }
+    
+    [HttpPost]
+    public IActionResult AddBookForm(string title, string author, int publicationYear)
+    {
+        Book book = new Book()
+        {
+            Title = title,
+            Author = author,
+            PublicationYear = publicationYear
+        };
+
+        try
+        {
+            _appDbContext.AddBook(book);
+        }
+        catch (Exception e)
+        {
+            return View("~/Views/SuccessModel.cshtml", new ResponseViewModel
+            {
+                Success = false
+            });
+        }
+
+
+        return View("~/Views/SuccessModel.cshtml", new ResponseViewModel
+        {
+            Success = true
+        });
     }
 }

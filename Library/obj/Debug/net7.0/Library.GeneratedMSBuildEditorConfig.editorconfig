@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/artyomkirievsky/RiderProjects/Library/Library
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Admin/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Authorization/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yaXphdGlvbi9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,12 +36,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRm9ybXMvQWRkVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Library/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGlicmFyeS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Library/ViewBooksList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGlicmFyeS9WaWV3Qm9va3NMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Shared/Error.cshtml]
@@ -63,3 +71,7 @@ build_metadata.AdditionalFiles.CssScope =
 [/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-aprok82bfm
+
+[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Shared/_LibraryLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MaWJyYXJ5TGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-0sb1dcocgc

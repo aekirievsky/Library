@@ -1,0 +1,54 @@
+@model Library.Models.AllBooksViewModel
+@{
+    ViewBag.Title = "Library-Page";
+    Layout = "_LibraryLayout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Books List</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Library.styles.css" asp-append-version="true"/>
+</head>
+<body>
+<h2>
+    <span class="badge bg-gradient bg-secondary"style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Books List:</span>
+</h2>
+<form id="CheckBooksList" action="/Library/CheckBooksList" method="post">
+    <ul>
+        @*@foreach (var book in Model.Books)
+        {
+            <li>
+                <strong>Title:</strong> @book.Title <br/>
+                <strong>Author:</strong> @book.Author <br/>
+                <strong>Publication Year:</strong> @book.PublicationYear
+            </li>
+        }*@
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Publication Year</th>
+            </tr>
+            </thead>
+            <tbody>
+            @for (int i = 0; i < Model.Books.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model.Books[i].Title</td>
+                    <td>@Model.Books[i].Author</td>
+                    <td>@Model.Books[i].PublicationYear</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </ul>
+</form>
+</body>
+</html>

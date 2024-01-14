@@ -63,3 +63,12 @@
 /Users/artyomkirievsky/RiderProjects/Library/Library/obj/Debug/net7.0/Library.pdb
 /Users/artyomkirievsky/RiderProjects/Library/Library/obj/Debug/net7.0/Library.genruntimeconfig.cache
 /Users/artyomkirievsky/RiderProjects/Library/Library/obj/Debug/net7.0/ref/Library.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/artyomkirievsky/RiderProjects/Library/Library/obj/Debug/net7.0/scopedcss/Views/Shared/_LibraryLayout.cshtml.rz.scp.css

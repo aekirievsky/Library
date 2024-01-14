@@ -25,10 +25,7 @@ public class AppDbContext : DbContext
             .HasKey(x => new { x.UserId, x.BookId });
         modelBuilder.Entity<AdminUser>()
             .HasKey(x => new { x.AdminId, x.UserName });
-        modelBuilder.Entity<AdminToken>()
-            .HasKey(x=>new {x.Token, x.AdminId});
-        modelBuilder.Entity<UserToken>()
-           .HasKey(x=>new {x.Token, x.UserId});
+
 
         modelBuilder.Entity<UserBook>()
             .HasOne(x => x.Book)
@@ -39,15 +36,6 @@ public class AppDbContext : DbContext
             .HasOne(x => x.User)
             .WithMany(x => x.UserBook)
             .HasForeignKey(x => x.UserId);
-
-        modelBuilder.Entity<UserToken>()
-            .HasOne(x => x.User)
-            .WithMany(x => x.UserTokens)
-            .HasPrincipalKey(x => x.UserId);
-        modelBuilder.Entity<AdminToken>()
-            .HasOne(x => x.AdminUser)
-            .WithMany(x => x.AdminTokens)
-            .HasPrincipalKey(x => x.AdminId);
     }
 
     public void AddUser(User user_p)
