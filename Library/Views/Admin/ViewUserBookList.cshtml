@@ -14,31 +14,20 @@
     <link rel="stylesheet" href="~/Library.styles.css" asp-append-version="true"/>
 </head>
 
-<h2>title</h2>
+@*<h2>
+    <span class="badge bg-gradient bg-secondary"style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"></span>
+</h2>*@
 <body>
 <form asp-action="BookListByUser" asp-controller="Admin" method="post">
-    <label for="dropdown">Выберите элемент:</label>
+    <label for="dropdown">Select user:</label>
     <select id="dropdown" name="userName" class="form-select" aria-label="Пример выбора по умолчанию">
         @foreach (var item in Model.UserNameList)
         {
             <option value="@item">@item</option>
         }
     </select>
-    <button type="submit">Отправить</button>
-</form>
-
-@*<form id="CheckUserBookList" asp-action="BookListByUser" asp-controller="Admin" method="post">
-    <select for="UserName" class="form-select" aria-label="Пример выбора по умолчанию">
-        <option selected>Откройте это меню выбора</option>
-        @foreach (var item in Model.UserNameList)
-        {
-            <option value="1">@item</option>
-        }
-    </select>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Enter</button>
-        </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Enter</button>
     </div>
-</form>*@
+</form>
 </body>
