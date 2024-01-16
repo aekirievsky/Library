@@ -6,6 +6,7 @@ using Library.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.Controllers;
 
@@ -35,37 +36,6 @@ public class AdminController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-
-    [Route("Test")]
-    public IActionResult Test()
-    {
-        /*return BadRequest(Json("Error 404"));*/
-        return StatusCode(500);
-    }
-
-    [HttpGet()]
-    [Route("GetUserById")]
-    public IActionResult GetUserById([FromQuery(Name = "UserID")] int UserID)
-    {
-        var response = from u in _appDbContext.Users
-            where u.UserId == UserID
-            select u;
-
-        return response == null ? NotFound() : Ok(Json(response));
-    }
-
-    [HttpGet()]
-    [Route("GetBookById")]
-    public IActionResult GetBookById([FromQuery(Name = "BookID")] int BookID)
-    {
-        var response = from b in _appDbContext.Books
-            where b.BookId == BookID
-            select b;
-        if (response == null)
-            return StatusCode(404);
-
-        return response == null ? NotFound() : Ok(Json(response));
     }
 
     [HttpGet()]
@@ -107,7 +77,7 @@ public class AdminController : Controller
     {
         return View("~/Views/Forms/AddBook.cshtml");
     }
-    
+
     [HttpPost]
     public IActionResult AddBookForm(string title, string author, int publicationYear)
     {
@@ -135,5 +105,75 @@ public class AdminController : Controller
         {
             Success = true
         });
+    }
+
+    [HttpGet]
+    public IActionResult CheckUsersList()
+    {
+        var users = new List<UsersViewModel>();
+
+        foreach (var user in _appDbContext.Users)
+        {
+            users.Add(new UsersViewModel()
+            {
+                UserId = user.UserId,
+                UserName = user.UserName,
+                Password = user.Password
+            });
+        }
+
+        var allUsersList = new AllUsersViewModel()
+        {
+            Users = users
+        };
+
+        return View("ViewUsersList", allUsersList);
+    }
+
+    [HttpGet]
+    public IActionResult CheckUserBookList()
+    {
+        var userName = new List<string>();
+
+        foreach (var item in _appDbContext.Users)
+        {
+            userName.Add(item.UserName);
+        }
+
+        return View("ViewUserBookList", new UserNameViewModel
+        {
+            UserNameList = userName
+        });
+    }
+
+    [HttpPost]
+    public IActionResult BookListByUser(string userName)
+    {
+        var bookList = from u in _appDbContext.Users
+                .Include(u => u.UserBook)
+                .ThenInclude(u=>u.Book)
+            where u.UserName == userName
+            select u;
+
+        var books = new List<BooksViewModel>();
+
+        foreach (var userBook in bookList.FirstOrDefault().UserBook)
+        {
+            var book = userBook.Book;
+            books.Add(new BooksViewModel()
+            {
+                BookId = book.BookId,
+                Title = book.Title,
+                Author = book.Author,
+                PublicationYear = book.PublicationYear
+            });
+        }
+
+        var allBooksViewModel = new AllBooksViewModel()
+        {
+            Books = books
+        };
+
+        return View("~/Views/Library/ViewBooksList.cshtml",allBooksViewModel);
     }
 }

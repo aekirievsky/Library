@@ -1,0 +1,43 @@
+@model Library.Models.AllUsersViewModel
+@{
+    ViewBag.Title = "LibraryAdmin-Page";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Users List</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Library.styles.css" asp-append-version="true"/>
+</head>
+<body>
+<h2>
+    <span class="badge bg-gradient bg-secondary"style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Users List:</span>
+</h2>
+<form id="CheckUsersList" action="/Admin/CheckUsersList" method="post">
+    <ul>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">User Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            @for (int i = 0; i < Model.Users.Count; i++)
+            {
+                <tr>
+                    @*<td>@(i + 1)</td>*@
+                    <td>@Model.Users[i].UserId</td>
+                    <td>@Model.Users[i].UserName</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </ul>
+</form>
+</body>
+</html>

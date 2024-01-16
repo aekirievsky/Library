@@ -28,6 +28,7 @@ public class LibraryController : Controller
         {
             books.Add(new BooksViewModel()
             {
+                BookId = book.BookId,
                 Title = book.Title,
                 Author = book.Author,
                 PublicationYear = book.PublicationYear
