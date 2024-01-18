@@ -1,7 +1,7 @@
 @model Library.Models.AllBooksViewModel
 @{
-    ViewBag.Title = "Library-Page";
-    Layout = "_LibraryLayout";
+    ViewBag.Title = "Admin-Page";
+    Layout = "_Layout";
 }
 <!DOCTYPE html>
 <html>
@@ -15,9 +15,9 @@
 </head>
 <body>
 <h2>
-    <span class="badge bg-gradient bg-secondary"style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Books List:</span>
+    <span class="badge bg-gradient bg-secondary"style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Books List by user:</span>
 </h2>
-<form id="CheckBooksList" action="/Library/CheckBooksList" method="post">
+<form id="BookListByUser" action="/Admin/BookListByUser" method="post">
     <ul>
         <table class="table">
             <thead>

@@ -174,6 +174,6 @@ public class AdminController : Controller
             Books = books
         };
 
-        return View("~/Views/Library/ViewBooksList.cshtml",allBooksViewModel);
+        return View("~/Views/Admin/ViewBooksListForAdmin.cshtml",allBooksViewModel);
     }
 }
