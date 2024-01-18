@@ -19,13 +19,17 @@ public class AuthorizationController : Controller
         _appDbContext = appDbContext;
     }
 
-    public IActionResult Index()
+    public IActionResult AuthAdminIndex()
     {
-        return View();
+        return View("AuthAdminView");
+    }
+
+    public IActionResult AuthUserIndex()
+    {
+        return View("AuthUserView");
     }
 
     [HttpPost]
-    //[Route("AuthAdmin")]
     public async Task<IActionResult> AuthAdmin([FromForm] LoginRequestViewModel.Introduction loginIntroduction)
     {
         var admin = _appDbContext.AdminUsers
@@ -33,10 +37,15 @@ public class AuthorizationController : Controller
 
         if (admin != null)
         {
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, admin.UserName) };
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, admin.UserName),
+                new Claim(ClaimTypes.Role, "Admin")
+            };
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Cookies");
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(claimsIdentity));
+
             return RedirectToAction("Index", "Admin");
         }
         else
@@ -45,10 +54,41 @@ public class AuthorizationController : Controller
         }
     }
 
+    public async Task<IActionResult> AuthUser([FromForm] LoginRequestViewModel.Introduction loginIntroduction)
+    {
+        var user = _appDbContext.Users
+            .FirstOrDefault(a => a.UserName == loginIntroduction.UserName && a.Password == loginIntroduction.Password);
+
+        if (user != null)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, "User")
+            };
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Cookies");
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity));
+
+            return RedirectToAction("Index", "Library");
+        }
+        else
+        {
+            return BadRequest("Invalid username or password");
+        }
+    }
+
     [HttpGet]
-    public async Task<IActionResult> Logout()
+    public async Task<IActionResult> LogoutAdmin()
     {
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        return RedirectToAction("Index", "Authorization");
+        return RedirectToAction("AuthAdminIndex", "Authorization");
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> LogoutUser()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("AuthUserIndex", "Authorization");
     }
 }

@@ -36,8 +36,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVmlld1VzZXJzTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Authorization/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yaXphdGlvbi9JbmRleC5jc2h0bWw=
+[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Authorization/AuthAdminView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yaXphdGlvbi9BdXRoQWRtaW5WaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Authorization/AuthUserView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yaXphdGlvbi9BdXRoVXNlclZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/artyomkirievsky/RiderProjects/Library/Library/Views/Forms/AddBook.cshtml]

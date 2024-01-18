@@ -1,10 +1,12 @@
 using Library.Data.DataBase;
 using Library.Data.Entities;
 using Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.Controllers;
 
+[Authorize(Roles = "User")]
 public class LibraryController : Controller
 {
     private readonly AppDbContext _appDbContext;
@@ -40,6 +42,6 @@ public class LibraryController : Controller
             Books = books
         };
 
-        return View("ViewBooksList",allBooksViewModel);
+        return View("ViewBooksList", allBooksViewModel);
     }
 }

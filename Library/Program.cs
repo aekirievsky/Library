@@ -15,7 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // аутентификация с помощью куки
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options => options.LoginPath = "/Authorization/Index");
+    .AddCookie(options => options.LoginPath = "/Authorization/AuthUserIndex");
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -38,7 +38,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Authorization}/{action=Index}/{id?}");
+    pattern: "{controller=Authorization}/{action=AuthUserIndex}/{id?}");
 
 
 app.Run();

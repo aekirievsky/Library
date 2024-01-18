@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;
@@ -22,6 +22,7 @@ public class AdminController : Controller
         _appDbContext = appDbContext;
     }
 
+    
     public IActionResult Index()
     {
         return View();
@@ -151,7 +152,7 @@ public class AdminController : Controller
     {
         var bookList = from u in _appDbContext.Users
                 .Include(u => u.UserBook)
-                .ThenInclude(u=>u.Book)
+                .ThenInclude(u => u.Book)
             where u.UserName == userName
             select u;
 
@@ -174,6 +175,6 @@ public class AdminController : Controller
             Books = books
         };
 
-        return View("~/Views/Admin/ViewBooksListForAdmin.cshtml",allBooksViewModel);
+        return View("~/Views/Admin/ViewBooksListForAdmin.cshtml", allBooksViewModel);
     }
 }
