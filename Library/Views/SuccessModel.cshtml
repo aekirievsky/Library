@@ -9,26 +9,24 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css"/>
 </head>
 <body>
 <div>
     @{
         if (Model.Success)
         {
-            <h3>
+            <h2>
                 <span class="badge rounded-pill text-bg-success">Operation was successful!</span>
-            </h3>
+            </h2>
         }
         else
         {
-            <h3>
+            <h2>
                 <span class="badge rounded-pill text-bg-danger">Operation failed</span>
-            </h3>
+            </h2>
         }
     }
-
-    <a href="@Url.Action("Index", "Admin")">Back</a>
 
 </div>
 </body>

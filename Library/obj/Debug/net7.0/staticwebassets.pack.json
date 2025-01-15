@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/Library.bundle.scp.css"
     },
     {
+      "Id": "/Users/artyomkirievsky/RiderProjects/Library/Library/wwwroot/Img/Back.jpeg",
+      "PackagePath": "staticwebassets/Img/Back.jpeg"
+    },
+    {
       "Id": "/Users/artyomkirievsky/RiderProjects/Library/Library/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

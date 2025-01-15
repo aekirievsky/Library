@@ -18,4 +18,8 @@
       <_ContentIncludedByDefault Remove="Forms\AddUser.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="wwwroot\Img\Back.jpeg" />
+    </ItemGroup>
+
 </Project>

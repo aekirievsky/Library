@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A58wqy8/Du5Z67oOW15Z/+zxoR2jCmRueXhRP7e2/MY=",
+  "Hash": "tGVeln2ncxd93FxVeYo/HZA3mW4X5XztYhg2oUMUxRc=",
   "Source": "Library",
   "BasePath": "_content/Library",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/artyomkirievsky/RiderProjects/Library/Library/wwwroot/Img/Back.jpeg",
+      "SourceId": "Library",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/artyomkirievsky/RiderProjects/Library/Library/wwwroot/",
+      "BasePath": "_content/Library",
+      "RelativePath": "Img/Back.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Img/Back.jpeg"
     },
     {
       "Identity": "/Users/artyomkirievsky/RiderProjects/Library/Library/wwwroot/js/site.js",
